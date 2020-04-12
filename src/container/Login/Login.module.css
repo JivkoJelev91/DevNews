@@ -1,0 +1,67 @@
+@import '../../resources//variables.css';
+
+.loginWrapper{
+    display: var(--d-flex);
+    flex-direction: column;
+    width: 350px;
+    background-color: var(--color-white);
+    padding: 10px 30px 20px 30px;
+    border-radius: 2%;
+}
+
+.closeModal{
+    align-self: flex-end;
+    cursor: var(--cursor-pointer);
+}
+
+.btn {
+    display: var(--d-inline-block);
+    width: var(--w-100);
+    padding: 15px;
+    border: var(--border-none);
+    border-radius: 5px;
+    margin: 10px 0;
+    opacity: 0.85;
+    font-size: 17px;
+    line-height: 20px;
+    cursor: var(--cursor-pointer);
+  }
+
+  .fb {
+    background-color: var(--fb-color);
+    color: var(--color-white);
+  }
+  
+  .twitter {
+    background-color: var(--tw-color);;
+    color: var(--color-white);
+  }
+  
+  .google {
+    background-color: var(--google-color);
+    color: var(--color-white);
+  }
+
+  .github{
+    background-color: var(--github-color);
+    color: var(--color-white);
+  }
+
+  .logo{
+    display: var(--d-flex);
+    text-decoration: var(--t-decoration-none);
+    justify-content: center;
+    align-items: center;
+    font-weight: 800;
+    padding: 0 20px 10px 20px;
+}
+
+  .logo img {
+    width: 250px;
+  }
+
+  @media only screen and (max-width: 700px) {
+    .loginWrapper{
+        width: 300px;
+    }
+}

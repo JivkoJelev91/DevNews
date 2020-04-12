@@ -1,0 +1,41 @@
+.userDetailsWrapper{
+    /* border: 1px solid #000;
+    background: var(--color-white);
+    box-shadow: var(--box-shadow); */
+    margin-bottom: 25px;
+}
+
+.user{
+    display: var(--d-flex);
+    align-items: center;
+    padding: 5px 0px;
+}
+
+.avatar img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.username{
+    padding-left: 15px;
+    font-weight: 900;
+    opacity: 0.6;
+}
+
+.email, .joined{
+    padding: 5px 15px;
+}
+
+.email span{
+    padding: 5px 10px;
+    font-weight: 900;
+    opacity: 0.6;
+}
+
+
+.joined span{
+    padding: 5px 10px;
+    font-weight: 900;
+    opacity: 0.6;
+}

@@ -1,0 +1,78 @@
+@import '../../../resources//variables.css';
+
+.posts{
+    display: var(--d-flex);
+    background-color: var(--color-white);
+    box-shadow: var(--box-shadow);
+    padding: 20px;
+    margin: 0 20px 20px;
+    border-radius: 2%;
+    border-left: 3px solid #eee;
+    border-top: 3px solid #eee;
+    cursor: var(--cursor-pointer);
+}
+
+.postImage img {
+    min-width: 250px;
+    min-height: 150px;
+    padding: 0 20px;
+    width: 250px;
+    height: var(--h-100);
+}
+
+.tag{
+    opacity: 0.7;
+}
+
+.title{
+    font-size: 24px;
+    padding: 10px 0;
+}
+
+.userDetails{
+    display: var(--d-flex);
+    align-items: center;
+    font-size: 16px;
+}
+
+.userDetails div{
+    padding: 10px;
+}
+
+.avatar {
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+}
+
+.publishDate{
+    font-weight: 800;
+    opacity: 0.6;
+}
+
+.publishDate i {
+    padding-right: 15px;
+}
+
+@media only screen and (max-width: 724px) {
+    .posts{
+        display: var(--d-block);
+        margin: 0 0 20px;
+    }
+    .postImage{
+        margin: var(--m-auto);
+        text-align: var(--t-center);
+    }
+    .postImage img {
+        height: var(--h-100);
+        width: var(--w-100);
+        padding: 0;
+    }
+    .title{
+        font-size: 18px;
+    }
+    .userDetails{
+        font-size: 14px;
+        flex-wrap: wrap;
+    }
+}

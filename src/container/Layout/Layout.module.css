@@ -1,0 +1,77 @@
+@import '../../resources//variables.css';
+
+.layout{
+    display: var(--d-grid);
+    max-width: 1300px;
+    margin: auto;
+    -webkit-box-align: center;
+    grid-template-columns: 2fr 7fr 2fr;
+    justify-items: center;
+    padding: 5px 10px;
+    grid-gap: 20px;
+}
+
+.postsWrapper{
+  width: var(--w-100);
+  margin: var(--m-auto);
+}
+
+.profileAndTags{
+  align-items: flex-start;
+  width:100%;
+  position: sticky;
+  position: -webkit-sticky;
+  top: 130px;
+  height: 450px;
+}
+
+.filtersWrapper {
+  display: var(--d-flex);
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 5px;
+}
+
+.filtersWrapper button{
+  font-weight: var(--font-bold);
+  padding: 10px; 
+  border: var(--border-none);
+  border-radius: 5%;
+  text-transform: var(--t-uppercase);
+  margin: 10px;
+  box-shadow: var(--box-shadow);
+  background-color: var(--color-white);
+}
+
+.filtersWrapper button:focus{
+  background-color: #0095ff;
+  color: var(--color-white);
+  border: 1px solid lightgray;
+  padding: 9px;
+}
+
+.reviewWrapper{
+  position: sticky;
+  position: -webkit-sticky;
+  top: 120px;
+  height: 450px;
+}
+
+.lastCommentsWrapper{
+  align-self: center;
+  justify-self: left;
+  padding: 10px;
+  font-weight: var(--font-bold);
+}
+
+@media only screen and (max-width: 1024px) {
+    .lastCommentsWrapper, .profileAndTags, .reviewWrapper {
+      display: var(--d-none);
+    }
+    .layout{
+      justify-content: center;
+      padding: 0 20px;
+      grid-template-columns: 1fr;
+      grid-gap: 0px;
+    }
+}

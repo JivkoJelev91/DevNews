@@ -1,0 +1,26 @@
+@import '../../resources//variables.css';
+
+.title{
+    font-weight: var(--font-bold);
+    padding: 5px 0;
+}
+
+.tag{
+    padding: 10px;
+    color: var(--color-black);
+    font-size: 18px;
+}
+
+.tag > i:hover{
+    color: var(--color-white);
+    cursor: var(--cursor-pointer);
+}
+
+.tag:hover{
+    background-color: #0095ff;
+    color: var(--color-white);
+    box-shadow: var(--box-shadow);
+    cursor: var(--cursor-pointer);
+    border-radius: 5%;
+}
+

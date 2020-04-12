@@ -1,0 +1,51 @@
+@import '../../resources//variables.css';
+
+.dropdown{
+    position: var(--p-absolute);
+    top: 47px;
+    right: 0px;
+    border: 2px solid #000;
+    z-index: 1;
+    background-color: var(--color-white);
+    width: 200px;
+    box-shadow: var(--box-shadow);
+}
+
+.dropdown div{
+    padding: 10px;
+    border-bottom: 1px solid #e3e3e3;
+    font-weight: 800;
+}
+
+.dropdown div i {
+    padding-right: 10px;
+}
+
+
+.dropdown div:hover{
+    background-color: #55ACEE;
+    color: var(--color-white);
+}
+
+.arrowUpOuter {
+    position: var(--p-absolute);
+    top: 38px;
+    right: 20px;
+    z-index: 4;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 11px 11px 11px;
+    border-color: transparent transparent #000 transparent;
+}
+
+.arrowUpInner {
+    position: var(--p-absolute);
+    right: -10px;
+    z-index: 3;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 1px 10px 10px 10px;
+    border-color: transparent transparent #fff transparent;
+}

@@ -1,0 +1,44 @@
+:root {
+    /* color */
+    --color-black: #000;
+    --color-white: #fff;
+
+    /* social media color */
+    --fb-color: #3B5998;
+    --tw-color: #55ACEE;
+    --google-color: #dd4b39;
+    --github-color: #24292e;
+
+    /* display */
+    --d-flex: flex;
+    --d-block: block;
+    --d-inline-block: inline-block;
+    --d-grid: grid;
+    --d-none: none;
+
+    /* position */
+    --p-absolute: absolute; 
+    --p-fixed: fixed;
+    --p-relative: relative;
+
+    /* text */
+    --t-center: center;
+    --t-uppercase: uppercase;
+    --t-decoration-none: none;
+    
+    /* dimension */
+    --w-100: 100%;
+    --h-100: 100%;
+
+    /* shadow */
+    --box-shadow: 5px 5px 2px #aaa;
+
+    --cursor-pointer: pointer;
+
+    --m-auto: 0 auto;
+
+    --font-bold: bold;
+
+    --border-none: none;
+ 
+  }

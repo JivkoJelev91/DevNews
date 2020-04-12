@@ -1,26 +1,54 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Fragment, useEffect } from 'react';
+import { Route, Switch } from 'react-router-dom';
+import { connect } from 'react-redux';
 
-function App() {
+import { checkUserAuth, getToken } from './redux/actions/AuthActions';
+import { getProfile } from './redux/actions/loginActions';
+
+import Layout from './container/Layout/Layout';
+import CurrentPost from './container/Posts/CurrentPost/CurrentPost';
+import Header from './container/Header/Header';
+import Profile from './container/Profile/Profile';
+import CreatePost from './container/Posts/CreatePost/CreatePost';
+import DraftPost from './container/Posts/DraftPost/DraftPost';
+import ErrorPage from './components/ErrorPage/ErrorPage';
+import RequireAuth from './components/RequireAuth/RequireAuth';
+import Notification from './components/Notification/Notification'
+
+const App = ({ getToken, checkUserAuth, isAuthenticated, getProfile }) => {
+  
+  checkUserAuth()
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      getProfile(getToken())
+    }
+  }, [getProfile, getToken, isAuthenticated]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Fragment>
+      <Notification />
+      <Header />
+      <Switch>
+        <Route path="/" component={Layout} exact />
+        <Route path="/current-post" component={CurrentPost} />
+        <Route path="/create-post" component={RequireAuth(CreatePost)} />
+        <Route path="/draft-post" component={RequireAuth(DraftPost)} />
+        <Route path="/profile" component={Profile} />
+        <Route component={ErrorPage} />
+      </Switch>
+    </Fragment>
   );
 }
 
-export default App;
+const mapStateToProps = (state) => ({
+  isAuthenticated: state.isAuth.isAuthenticated,
+});
+
+const mapDispatchToProps = {
+  getProfile,
+  getToken, 
+  checkUserAuth,
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

@@ -1,0 +1,115 @@
+@import '../../../resources//variables.css';
+
+.createPostWrapper{
+    width: 50vw;
+    margin: 0 auto;
+    background-color: #f9f9f9;
+    border-left: 1px solid #c8ccd0;
+    border-top: 1px solid #c8ccd0;
+}
+
+.titleWrapper {
+    padding: 30px;
+    border-right: 1px solid #c8ccd0;
+   
+    margin-bottom: -1px;
+}
+
+.title{
+    display: var(--d-flex);
+    position: var(--p-relative);;
+    align-items: center;
+    outline: none;
+    box-shadow: var(--box-shadow);
+    border-bottom: 1px solid gray;
+    border-radius: 5px;
+}
+
+.title > i {
+    position: var(--p-absolute);;
+    left: 10px;
+}
+
+.title input[type='text']{
+    width: var(--w-100);       
+    height:25px;
+    padding-left: 30px;
+}
+
+.titleRow {
+    display: var(--d-grid);
+    grid-template-columns: 1fr 1fr;
+}
+
+.fileWrapper{
+    margin: var(--m-auto);
+    align-self: center;
+    margin-bottom: -1px;
+}
+
+.fileWrapper input[type="file"] {
+    display: var(--d-none);
+}
+
+.customFileUpload {
+    display: var(--d-inline-block);
+    cursor: var(--cursor-pointer);
+    padding: 10px 30px;
+    box-shadow: var(--box-shadow);
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+
+.editor {
+    max-width: 1250px;
+    width: var(--w-100);       
+    margin: var(--m-auto);
+}
+
+.btnWrapper{
+    display: var(--d-flex);
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #c8ccd0;
+    justify-content: space-between;
+}
+
+.publish{
+    background-color: #0095ff;
+    color: var(--color-white);
+    padding:10px; 
+    border: var(--border-none);
+    border-radius: 5%;
+    text-transform: var(--t-uppercase);
+    box-shadow: var(--box-shadow);
+}
+
+.publish:hover{
+    opacity: 0.8
+}
+
+@media only screen and (max-width: 1400px) {
+    .createPostWrapper{
+        width: 60vw;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .createPostWrapper{
+        margin: 0;
+        width: 90vw;
+    }
+    .titleRow {
+        display: var(--d-block);
+    }
+    .titleWrapper {
+        padding: 30px;
+        border-right: none;
+        margin-bottom: -1px;
+    }
+    .fileWrapper{
+        text-align: var(--t-center);
+        margin-bottom: -1px;
+        padding-bottom: 30px;
+    }
+}
