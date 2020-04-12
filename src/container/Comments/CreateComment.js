@@ -7,6 +7,7 @@ import * as Showdown from "showdown";
 import "react-mde/lib/styles/css/react-mde-all.css";
 import Comments from './Comments';
 import { submitComment } from '../../redux/actions/commentsActions';
+import Button from '../../components/Button/Button';
 
 const CreateComment = ({ submitComment, postId, user }) => {
     const [comment, setComment] = useState('');
@@ -19,7 +20,8 @@ const CreateComment = ({ submitComment, postId, user }) => {
         tasklists: true
     });
 
-    const createComment = async () => {
+    const createComment = async (e) => {
+        e.preventDefault();
         if (comment) {
             await submitComment({
                 user_id: user._id,
@@ -47,12 +49,11 @@ const CreateComment = ({ submitComment, postId, user }) => {
                     />
                 </div>
                 <div className={classes.btnWrapper}>
-                    <button
-                        className={classes.commentBtn}
-                        type='button'
+                    <Button
+                        type={'submit'}
                         onClick={createComment}>
                         SUBMIT
-                    </button>
+                    </Button>
                 </div>
             </div>
             <Comments user={user} />

@@ -40,11 +40,10 @@ export const getPosts = (page, pageSize) => dispatch => {
     dispatch({ type: FETCH_POSTS_REQUEST });
     return axios.get(`${url}/posts/feed/?page=${page}&pagesize=${pageSize}`)
         .then(posts => {
-             dispatch({
+            dispatch({
                 type: FETCH_POSTS_SUCCESS,
                 payload: posts.data
             })
-            //return posts;
         })
         .then(err => err)
 };

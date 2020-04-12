@@ -8,6 +8,7 @@ import {
 } from '../../../redux/actions/postsActions';
 import { withRouter } from "react-router-dom";
 
+import Button from '../../../components/Button/Button';
 import Notifications from 'react-notification-system-redux';
 import store from '../../../redux/store';
 import classes from './CreatePost.module.css'
@@ -142,18 +143,18 @@ const CreatePost = ({
                     />
                 </div>
                 <div className={classes.btnWrapper}>
-                    <button
+                    <Button
                         className={classes.publish}
                         type='button'
                         onClick={saveDraft}>
                         SAVE DRAFT
-                    </button>
-                    <button
+                    </Button>
+                    <Button
                         className={classes.publish}
                         type='button'
                         onClick={clearPost}>
                         CLEAR
-                    </button>
+                    </Button>
                 </div>
             </div>
         </div>

@@ -1,3 +1,5 @@
+@import '../../resources//variables.css';
+
 .commentWrapper {
     width: var(--w-100);
     max-width: 1000px;
@@ -33,9 +35,16 @@
 }
 
 .preview{
-    display: flex;
+    display: var(--d-flex);
+    justify-content: space-between;
+    align-items: center;
+    padding-top:10px;
 }
 
-.preview div{
+.likeDislike{
+    display: var(--d-flex);
+}
+
+.likeDislike div{
     padding: 10px;
 }

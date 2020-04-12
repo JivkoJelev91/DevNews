@@ -4,6 +4,7 @@ import { getDraftPost, makePostPublic } from '../../../redux/actions/postsAction
 import { baseStaticUrl } from '../../../Config/Config';
 import { withRouter } from "react-router-dom";
 
+import Button from '../../../components/Button/Button';
 import classes from './DraftPost.module.css';
 import moment from 'moment';
 import ReactHtmlParser from 'react-html-parser';
@@ -65,10 +66,10 @@ const DraftPost = ({ getDraftPost, draftPost, makePostPublic, history }) => {
                                     </div>
                                     <div className={classes.tags}></div>
                                     <div className={classes.draftButtons}>
-                                        <button type='button' onClick={() => history.push(`/create-post?postId=${postId}`)}>EDIT</button>
+                                        <Button type='button' onClick={() => history.push(`/create-post?postId=${postId}`)}>EDIT</Button>
                                     </div>
                                     <div className={classes.draftButtons}>
-                                        <button type='button' onClick={publish}>PUBLISH</button>
+                                        <Button type='button' onClick={publish}>PUBLISH</Button>
                                     </div>
                                 </div>
                                 <div className={classes.bodyText}>{ReactHtmlParser(htmlData)}</div>

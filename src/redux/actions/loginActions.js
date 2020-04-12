@@ -10,8 +10,10 @@ export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const LOGIN_FAILED = 'LOGIN_FAILED';
 
 export const getProfile = (token) => dispatch => {
-    axios.defaults.headers.common = {
-        'Authorization': `Basic ${token.toString()}`
+    if (token) {
+        axios.defaults.headers.common = {
+            'Authorization': `Basic ${token.toString()}`
+        }
     }
     return axios.get(`${url}/users/profile` )
             .then(user => dispatch({

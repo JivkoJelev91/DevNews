@@ -1,5 +1,5 @@
 
-import React, { useEffect, useCallback } from 'react';
+import React, { useEffect, useCallback, useRef } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { useHistory } from "react-router-dom";
@@ -11,12 +11,10 @@ import classes from './Posts.module.css';
 import Spiner from '../../../components/Spinner/Spinner';
 import moment from 'moment';
 
-const Posts = ({ getPosts, posts, loading, page, pageSize }) => {
+const Posts = ({ getPosts, posts, loading}) => {
     const history = useHistory();
-
-    console.log(page);
-    console.log(posts)
-
+    const page = useRef(0);
+    const pageSize = 10;
 
     const onScroll = useCallback((e) => {
         e.preventDefault();
@@ -24,7 +22,7 @@ const Posts = ({ getPosts, posts, loading, page, pageSize }) => {
             window.innerHeight + window.scrollY >= document.body.offsetHeight - 100;
         if (nearBottom) {
             page.current++;
-            return getPosts(page.current, pageSize)
+            getPosts(page.current, pageSize)
         }
     }, [getPosts, page, pageSize]);
 

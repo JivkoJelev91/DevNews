@@ -29,11 +29,7 @@
 
 .draftButtons button{
     background-color: #66e2d5;
-    padding:10px; 
-    border: var(--border-none);
-    border-radius: 5%;
-    text-transform: var(--t-uppercase);
-    box-shadow: var(--box-shadow);
+    color: var(--color-black);
 }
 
 .currentPost{

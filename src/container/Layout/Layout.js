@@ -1,5 +1,5 @@
 
-import React, { useRef } from 'react';
+import React from 'react';
 import Tags from '../Tags/Tags';
 import UserDetails from '../UserDetails/UserDetails';
 import Posts from '../Posts/AllPosts/Posts';
@@ -8,9 +8,6 @@ import Filters from '../Filters/Filters';
 import classes from './Layout.module.css';
 
 const Layout = () => {
-    const page = useRef(0);
-    const pageSize = 10;
-    console.log(page)
     return (
         <div>
             <div className={classes.layout}>
@@ -20,15 +17,13 @@ const Layout = () => {
                     <Tags />
                 </div>
                 <div className={classes.postsWrapper}>
-                     <div className={classes.filtersWrapper}>
+                    <div className={classes.filtersWrapper}>
                         <Filters />
                     </div>
-                    <Posts 
-                    page={page}
-                    pageSize={pageSize}/>
+                    <Posts />
                 </div>
                 <div className={classes.reviewWrapper}>
-                <div className={classes.lastCommentsWrapper}>LAST COMMENTS</div>
+                    <div className={classes.lastCommentsWrapper}>LAST COMMENTS</div>
                     <Reviews />
                 </div>
             </div>

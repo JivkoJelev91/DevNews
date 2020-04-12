@@ -57,12 +57,16 @@ const CurrentPost = ({ currentPost, getCurrentPost, submitComment, likePost }) =
                                         {moment().to(currentPost.created)}
                                     </div>
                                     <div className={classes.likes} onClick={likeDislikePost}>
-                                        <i className="fa fa-thumbs-up"/>
-                                            {currentPost.likes}
+                                        <i className="fa fa-thumbs-up" />
+                                        {currentPost.likes}
                                     </div>
                                     <div className={classes.dislikes} onClick={likeDislikePost}>
-                                        <i className="fa fa-thumbs-down"/>
+                                        <i className="fa fa-thumbs-down" />
                                         {currentPost.dislikes}
+                                    </div>
+                                    <div className={classes.dislikes}>
+                                        <i className="fa fa-comment" />
+                                        {currentPost.comments.length}
                                     </div>
                                     <div className={classes.tags}></div>
                                 </div>

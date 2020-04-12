@@ -78,20 +78,6 @@
     position: var(--p-relative);
 }
 
-.makePost, .login, .logout{
-    background-color: #0095ff;
-    color: var(--color-white);
-    padding:10px; 
-    border: var(--border-none);
-    border-radius: 5%;
-    text-transform: var(--t-uppercase);
-    box-shadow: var(--box-shadow);
-}
-
-.makePost:hover, .login:hover{
-    opacity: 0.8
-}
-
 @media only screen and (max-width: 1024px) {
     .makePost, .logout  {
         display: var(--d-none);

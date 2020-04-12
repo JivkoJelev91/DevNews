@@ -25,20 +25,6 @@
     justify-content: center;
 }
 
-.commentBtn{
-    background-color: #0095ff;
-    color: var(--color-white);
-    padding:10px; 
-    border: var(--border-none);
-    border-radius: 5%;
-    text-transform: var(--t-uppercase);
-    box-shadow: var(--box-shadow);
-}
-
-.commentBtn:hover{
-    opacity: 0.8
-}
-
 .commentText img {
     max-width: 100%;
     margin: 0 auto;

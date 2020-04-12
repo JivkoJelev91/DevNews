@@ -1,10 +1,9 @@
 
-import React, { useState } from 'react';
+import React from 'react';
 import classes from './Comments.module.css';
+import Button from '../../components/Button/Button';
 
 const Comments = ({ user }) => {
-
-
     return (
         <div className={classes.commentWrapper}>
             <div className={classes.userDetails}>
@@ -21,6 +20,7 @@ const Comments = ({ user }) => {
                 </div>
                 <div className={classes.created}>
                     5 days ago
+                    {/* <span>{moment().to(user.joined)}</span></div> */}
                 </div>
             </div>
             <div className={classes.commentText}>
@@ -34,11 +34,20 @@ const Comments = ({ user }) => {
                 Documentation is garbo too
             </div>
             <div className={classes.preview}>
-                <div>
-                    <i className="fa fa-thumbs-up"/>
+                <div className={classes.likeDislike}>
+                    <div>
+                        <i className="fa fa-thumbs-up" />
+                    </div>
+                    <div>
+                        <i className="fa fa-thumbs-down" />
+                    </div>
                 </div>
                 <div>
-                    <i className="fa fa-thumbs-down"/>
+                    <Button
+                        type={'button'}
+                        onClick={() => console.log('reply')}>
+                        REPLY
+                    </Button>
                 </div>
             </div>
         </div>

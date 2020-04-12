@@ -1,0 +1,13 @@
+.button {
+    background-color: #0095ff;
+    color: var(--color-white);
+    padding:10px; 
+    border: var(--border-none);
+    border-radius: 5%;
+    text-transform: var(--t-uppercase);
+    box-shadow: var(--box-shadow);
+}
+
+.button:hover{
+    opacity: 0.8
+}

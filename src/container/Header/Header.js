@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { connect } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import { deauthenticateUser, checkUserAuth } from '../../redux/actions/AuthActions';
 import { searchPost } from '../../redux/actions/postsActions';
 
@@ -9,13 +9,20 @@ import logo from '../../resources/logo.png';
 import Modal from '../../components/Modal/Modal';
 import Login from '../Login/Login';
 import DropdownMenu from '../DropdownMenu/DropdownMenu';
+import Button from '../../components/Button/Button';
 import classes from './Header.module.css';
 
-const Header = ({ user, closeModal, isAuthenticated, deauthenticateUser,searchPost }) => {
+const Header = ({ 
+      user, 
+      closeModal, 
+      isAuthenticated, 
+      deauthenticateUser,
+      searchPost, 
+      history 
+  }) => {
   const [openLoginModal, setOpenLoginModal] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(false);
   const [searchValue, setSearchValue] = useState('');
-  const history = useHistory();
   const menuRef = useRef(null);
 
   const logout = useCallback(() => {
@@ -65,10 +72,15 @@ const Header = ({ user, closeModal, isAuthenticated, deauthenticateUser,searchPo
           {isAuthenticated && user ?
             <>
               <div className={classes.btnProfile}>
-                <button type='button' className={classes.makePost} onClick={() => history.push('/create-post')}>Make a post</button>
+                <Button 
+                  type='button' 
+                  className={classes.makePost} 
+                  onClick={() => history.push('/create-post')}>
+                    Make a post
+                </Button>
               </div>
               <div className={classes.btnProfile}>
-                <button type='button' className={classes.logout} onClick={logout}>Logout</button>
+                <Button type='button' className={classes.logout} onClick={logout}>Logout</Button>
               </div>
               <div className={classes.btnProfile}>
                 <i className='fa fa-bell fa-lg' />
@@ -85,7 +97,12 @@ const Header = ({ user, closeModal, isAuthenticated, deauthenticateUser,searchPo
             </>
             :
             <div>
-              <button type='button' className={classes.login} onClick={() => setOpenLoginModal(true)}>Login</button>
+              <Button 
+                type='button' 
+                className={classes.login} 
+                onClick={() => setOpenLoginModal(true)}>
+                  Login
+              </Button>
             </div>}
         </div>
       </div>
@@ -114,4 +131,4 @@ const mapDispatchToProps = {
   searchPost
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Header);
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Header));

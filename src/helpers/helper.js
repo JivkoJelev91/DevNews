@@ -1,4 +1,4 @@
- export const debounce = (fn, delay) => {
+export const debounce = (fn, delay) => {
     var timer = null;
     return function () {
         var context = this,
