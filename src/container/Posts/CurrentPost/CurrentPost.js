@@ -11,7 +11,7 @@ import ReactHtmlParser from 'react-html-parser';
 import * as Showdown from "showdown";
 import "react-mde/lib/styles/css/react-mde-all.css";
 
-const CurrentPost = ({ currentPost, getCurrentPost, submitComment, likePost }) => {
+const CurrentPost = ({ currentPost, getCurrentPost, submitComment, likePost, user, isAuthenticated }) => {
 
     const postId = new URLSearchParams(window.location.search).get('postId')
 
@@ -28,12 +28,12 @@ const CurrentPost = ({ currentPost, getCurrentPost, submitComment, likePost }) =
 
     useEffect(() => {
         if (postId) {
-            getCurrentPost(postId);
+            getCurrentPost(postId, user  ? user._id : null);
         }
-    }, [getCurrentPost, postId])
+    }, [getCurrentPost, postId, user, isAuthenticated])
 
-    const likeDislikePost = () => {
-        likePost(postId);
+    const likeDislikePost = (finalJudge) => {
+        likePost(postId, finalJudge);
     }
 
     return (
@@ -49,6 +49,7 @@ const CurrentPost = ({ currentPost, getCurrentPost, submitComment, likePost }) =
                                 <h1 className={classes.title}>{currentPost.title}</h1>
                                 <div className={classes.userDetails}>
                                     <div className={classes.avatar}>
+                                        {console.log(currentPost.user)}
                                         <img src={`${currentPost.user.default_picture}`} alt='avatar' />
                                     </div>
                                     <div className={classes.username}>{currentPost.user.name}</div>
@@ -56,11 +57,11 @@ const CurrentPost = ({ currentPost, getCurrentPost, submitComment, likePost }) =
                                         <i className="fa fa-calendar" />
                                         {moment().to(currentPost.created)}
                                     </div>
-                                    <div className={classes.likes} onClick={likeDislikePost}>
+                                    <div className={classes.likes} onClick={() => likeDislikePost('likes')}>
                                         <i className="fa fa-thumbs-up" />
                                         {currentPost.likes}
                                     </div>
-                                    <div className={classes.dislikes} onClick={likeDislikePost}>
+                                    <div className={classes.dislikes} onClick={() => likeDislikePost('dislikes')}>
                                         <i className="fa fa-thumbs-down" />
                                         {currentPost.dislikes}
                                     </div>
@@ -83,6 +84,8 @@ const CurrentPost = ({ currentPost, getCurrentPost, submitComment, likePost }) =
 
 const mapStateToProps = state => ({
     currentPost: state.posts.currentPost,
+    user: state.login.user.user,
+    isAuthenticated: state.isAuth.isAuthenticated,
 })
 
 const mapDispatchToProps = {

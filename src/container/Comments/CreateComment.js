@@ -1,15 +1,15 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import classes from './CreateComment.module.css';
 import ReactMde from "react-mde";
 import * as Showdown from "showdown";
 import "react-mde/lib/styles/css/react-mde-all.css";
 import Comments from './Comments';
-import { submitComment } from '../../redux/actions/commentsActions';
+import { submitComment, getComments } from '../../redux/actions/commentsActions';
 import Button from '../../components/Button/Button';
 
-const CreateComment = ({ submitComment, postId, user }) => {
+const CreateComment = ({ submitComment, getComments, postId, user, comments }) => {
     const [comment, setComment] = useState('');
     const [selectedTab, setSelectedTab] = useState("write");
 
@@ -19,6 +19,12 @@ const CreateComment = ({ submitComment, postId, user }) => {
         strikethrough: true,
         tasklists: true
     });
+
+    useEffect(() => {
+        if(postId){
+            getComments(postId);
+        }
+    }, [getComments, postId])
 
     const createComment = async (e) => {
         e.preventDefault();
@@ -31,6 +37,8 @@ const CreateComment = ({ submitComment, postId, user }) => {
         }
         setComment('');
     }
+
+    console.log(comments)
 
     return (
         <div>
@@ -63,10 +71,12 @@ const CreateComment = ({ submitComment, postId, user }) => {
 
 const mapStateToProps = (state) => ({
     user: state.login.user.user,
+    comments: state.comments.comments
 });
 
 const mapDispatchToProps = {
-    submitComment
+    submitComment,
+    getComments,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(CreateComment);

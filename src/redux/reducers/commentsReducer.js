@@ -1,17 +1,19 @@
-// import {
-// } from '../actions/postsActions';
+import {
+    GET_COMMENTS
+} from '../actions/commentsActions';
 
-// const initialState = {
-// }
+const initialState = {
+    comments: [],
+}
 
-// export default function (state = initialState, action) {
-//     switch (action.type) {
-//         case GET_CURRENT_POST:
-//             return {
-//                 ...state,
-//                 currentPost: action.payload
-//             }
+export default function (state = initialState, action) {
+    switch (action.type) {
+        case GET_COMMENTS:
+            return {
+                ...state,
+                comments: action.payload
+            }
 
-//         default: return state;
-//     }
-// }
+        default: return state;
+    }
+}

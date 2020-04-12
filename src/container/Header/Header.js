@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { deauthenticateUser, checkUserAuth } from '../../redux/actions/AuthActions';
+import { deauthenticateUser } from '../../redux/actions/AuthActions';
 import { searchPost } from '../../redux/actions/postsActions';
 
 import logo from '../../resources/logo.png';
@@ -127,7 +127,6 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = {
   deauthenticateUser,
-  checkUserAuth,
   searchPost
 }
 

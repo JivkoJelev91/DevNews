@@ -61,10 +61,13 @@ const Posts = ({ getPosts, posts, loading}) => {
                                 {moment().to(post.created)}
                             </div>
                             <div className={classes.likes}>
-                                <i className='fa fa-thumbs-up' /> 29
+                                <i className='fa fa-thumbs-up' /> {post.likes}
+                            </div>
+                            <div className={classes.likes}>
+                                <i className='fa fa-thumbs-up' /> {post.dislikes}
                             </div>
                             <div className={classes.messages}>
-                                <i className="fa fa-comment" /> 3
+                                <i className="fa fa-comment" /> {post.comments.length}
                             </div>
                         </div>
                     </div>

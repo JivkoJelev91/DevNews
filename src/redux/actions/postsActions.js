@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { url } from '../../Config/Config';
+
 import Notifications from 'react-notification-system-redux';
 
 export const FETCH_POSTS_REQUEST = 'FETCH_POSTS_REQUEST';
@@ -13,20 +14,21 @@ export const GET_CURRENT_POST = 'GET_CURRENT_POST';
 export const UPLOAD_COVER_IMAGE = 'UPLOAD_COVER_IMAGE';
 
 
-export const likePost = (postId) => dispatch => {
+export const likePost = (postId, finalJudge) => dispatch => {
     const token = localStorage.getItem('token');
     if (token) {
         axios.defaults.headers.common = {
             'Authorization': `Basic ${token.toString()}`
         }
     }
-    return axios.post(`${url}/posts/like-post`, { postId })
-        .then(like => like)
+    return axios.post(`${url}/users/judge-post`, { post_id: postId, type: finalJudge })
+        .then(like => dispatch(getCurrentPost(postId)))
         .then(err => err)
 }
-
-export const getCurrentPost = (id) => dispatch => {
-    return axios.get(`${url}/posts/get-published-post/${id}`)
+    
+export const getCurrentPost = (postId, userId) => dispatch => {
+    if(userId){
+        return axios.get(`${url}/posts/get-published-post/${postId}/${userId}`)
         .then(post => {
             return dispatch({
                 type: GET_CURRENT_POST,
@@ -34,6 +36,16 @@ export const getCurrentPost = (id) => dispatch => {
             })
         })
         .then(err => err)
+    }else{
+        return axios.get(`${url}/posts/get-published-post/${postId}`)
+        .then(post => {
+            return dispatch({
+                type: GET_CURRENT_POST,
+                payload: post.data.post
+            })
+        })
+        .then(err => err)
+    }
 };
 
 export const getPosts = (page, pageSize) => dispatch => {
